@@ -572,3 +572,5 @@ document.addEventListener("DOMContentLoaded", () => {
 // Common reveal options to create reveal animations.
 
 // Target elements and specify options to create reveal animations.
+
+

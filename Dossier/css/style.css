@@ -2066,5 +2066,214 @@
    transition: .3s;
 }
 
+/* Overlay */
+#popup-overlay {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(10px);
+  background: rgba(10, 15, 30, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+/* Caché */
+#popup-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Popup */
+.popup {
+  background: linear-gradient(180deg, #0f172a, #020617);
+  color: #e5e7eb;
+  padding: 30px;
+  width: 90%;
+  max-width: 520px;
+  border-radius: 16px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+  transform: scale(0.9) translateY(30px);
+  opacity: 0;
+}
+
+/* Animation d'ouverture */
+.popup.animate {
+  animation: popupOpen 0.5s ease forwards;
+}
+
+/* Animation de fermeture */
+.popup.close {
+  animation: popupClose 0.4s ease forwards;
+}
+
+@keyframes popupOpen {
+  from {
+    transform: scale(0.9) translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes popupClose {
+  from {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.85) translateY(20px);
+    opacity: 0;
+  }
+}
+
+/* Titre */
+.popup h2 {
+  color: #93c5fd;
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+/* Texte */
+.popup p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #cbd5f5;
+}
+
+/* Bouton OK */
+.ok-btn {
+  margin-top: 25px;
+  padding: 10px 28px;
+  background: #3b82f6;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.ok-btn:hover {
+  background: #2563eb;
+}
+
+/* Croix */
+.close-btn {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 22px;
+  background: none;
+  border: none;
+  color: #93c5fd;
+  cursor: pointer;
+}
+
+.popup {
+  text-align: center; /* centre TOUT le texte */
+}
+
+/* Bouton OK centré */
+.ok-btn {
+  display: block;
+  margin: 25px auto 0;
+}
+
+/* Croix désactivée visuellement */
+.close-btn.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+
+/* Assistant container */
+.assistant {
+  position: absolute;
+  left: 20px;
+  top: -40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: assistantIn 0.8s ease forwards;
+}
+
+/* Animation entrée */
+@keyframes assistantIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Bulle */
+.bubble {
+  background: #1e293b;
+  color: #e5e7eb;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  opacity: 0;
+  animation: bubbleIn 0.5s ease forwards;
+  animation-delay: 0.5s;
+}
+
+/* Animation bulle */
+@keyframes bubbleIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Bonhomme */
+.character {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Tête */
+.head {
+  width: 28px;
+  height: 28px;
+  background: #93c5fd;
+  border-radius: 50%;
+}
+
+/* Corps */
+.body {
+  width: 22px;
+  height: 32px;
+  background: #3b82f6;
+  border-radius: 10px;
+  margin-top: 4px;
+}
+
+/* Petit effet flottant */
+.character {
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
 
 

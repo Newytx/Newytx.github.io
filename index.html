@@ -1247,6 +1247,98 @@
   </footer>
 
 
+<!-- POPUP -->
+<div id="popup-overlay" class="hidden">
+  <div class="popup animate">
+    <button class="close-btn" id="closePopup">&times;</button>
+
+    <div class="assistant">
+  <div class="bubble">Bonjour ! 👋</div>
+  <div class="character">
+    <div class="head"></div>
+    <div class="body"></div>
+  </div>
+</div>
+
+
+    <h2>Message Important</h2>
+    <p>
+      Le responsive n'est pas encore disponible sur les petits écrans tels que les téléphones et tablettes.
+      <br><br>
+      Pour une expérience optimale, veuillez consulter le site sur un ordinateur portable ou fixe.
+      <br><br>
+      Merci pour votre compréhension et nous nous excusons pour la gêne occasionnelle ! (^-^)/
+    </p>
+
+    <button class="ok-btn" id="okPopup">OK</button>
+
+    
+  </div>
+</div>
+
+
+
+<script>
+  const overlay = document.getElementById("popup-overlay");
+  const popup = document.querySelector(".popup");
+  const closeBtn = document.getElementById("closePopup");
+  const okBtn = document.getElementById("okPopup");
+
+  let canClose = false;
+  let timeLeft = 10;
+
+  // Désactiver les boutons au départ
+  closeBtn.classList.add("disabled");
+  okBtn.disabled = true;
+  okBtn.style.opacity = "0.5";
+  okBtn.style.cursor = "not-allowed";
+  okBtn.textContent = `OK (${timeLeft})`;
+
+  // Ouverture au chargement
+  window.addEventListener("load", () => {
+    overlay.classList.remove("hidden");
+    popup.classList.remove("close");
+    popup.classList.add("animate");
+
+    const countdown = setInterval(() => {
+      timeLeft--;
+      okBtn.textContent = `OK (${timeLeft})`;
+
+      if (timeLeft <= 0) {
+        clearInterval(countdown);
+        canClose = true;
+        okBtn.textContent = "OK";
+        okBtn.disabled = false;
+        okBtn.style.opacity = "1";
+        okBtn.style.cursor = "pointer";
+        closeBtn.classList.remove("disabled");
+      }
+    }, 1000);
+  });
+
+  function closePopup() {
+    if (!canClose) return;
+
+    popup.classList.remove("animate");
+    popup.classList.add("close");
+
+    setTimeout(() => {
+      overlay.classList.add("hidden");
+    }, 400);
+  }
+
+  closeBtn.addEventListener("click", closePopup);
+  okBtn.addEventListener("click", closePopup);
+</script>
+
+
+
+
+
+
+
+
+
 
   <!--========== Swiper JS ==========-->
 
