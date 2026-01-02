@@ -1287,18 +1287,23 @@
   let canClose = false;
   let timeLeft = 5;
 
-  // Désactiver les boutons au départ
-  closeBtn.classList.add("disabled");
-  okBtn.disabled = true;
-  okBtn.style.opacity = "0.5";
-  okBtn.style.cursor = "not-allowed";
-  okBtn.textContent = `OK (${timeLeft})`;
+  function isMobileOrTablet() {
+  return /Mobi|Tablet|iPad|iPhone/i.test(navigator.userAgent);
+}
 
-  // Ouverture au chargement
+
   window.addEventListener("load", () => {
+    if (!isMobileOrTablet()) return; // ❌ PC → rien
+
+    // Ouvrir le popup
     overlay.classList.remove("hidden");
-    popup.classList.remove("close");
     popup.classList.add("animate");
+
+    // Init bouton OK
+    okBtn.textContent = `OK (${timeLeft})`;
+    okBtn.disabled = true;
+    okBtn.style.opacity = "0.5";
+    closeBtn.classList.add("disabled");
 
     const countdown = setInterval(() => {
       timeLeft--;
@@ -1310,7 +1315,6 @@
         okBtn.textContent = "OK";
         okBtn.disabled = false;
         okBtn.style.opacity = "1";
-        okBtn.style.cursor = "pointer";
         closeBtn.classList.remove("disabled");
       }
     }, 1000);
@@ -1330,6 +1334,7 @@
   closeBtn.addEventListener("click", closePopup);
   okBtn.addEventListener("click", closePopup);
 </script>
+
 
 
 

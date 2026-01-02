@@ -565,11 +565,7 @@ document.addEventListener("DOMContentLoaded", () => {
    document.body.classList[savedTheme === "light" ? "add" : "remove"]("light-theme");
 });
 
-window.addEventListener("load", () => {
-  overlay.classList.remove("hidden");
-  popup.classList.remove("close");
-  popup.classList.add("animate");
-});
+
 
 
 /* =====================================================
