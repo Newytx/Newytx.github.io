@@ -30,7 +30,8 @@ var resumeTabNav = function(resumeTabClick){
 
    setTimeout(() => {
 
-      resumeTabContents[resumeTabClick].classList.add(active);
+      resumeTabContents[resumeTabClick].classList.add("active");
+
    }, 100);
    
    resumeTabContents[resumeTabClick].classList.add("active");
@@ -278,9 +279,9 @@ const portfolioCardsWithModals = document.querySelectorAll(".portfolio-container
         })();
 
 
-nouchamContactForm = document.getElementById("noucham-contact-form");
+const nouchamContactForm = document.getElementById("noucham-contact-form");
+const nouchamContactFormAlert = document.querySelector(".contact-form-alert");
 
-nouchamContactFormAlert = document.querySelector(".contact-form-alert");
 
 nouchamContactForm.addEventListener('submit', function(event) {
                 event.preventDefault();

@@ -204,9 +204,9 @@
 
    .noucham-container{
 
-      max-width: 1170px;
+      max-width: 1175px;
       margin-left: auto;
-      margin-right: auto; 
+      margin-right: auto;
    }
 
 
@@ -2275,11 +2275,10 @@
   }
 }
 
-/* @media (min-width: 1025px) {
-  #popup-overlay {
-    display: none !important;
-  }
-} */
+
+
+
+
 
 
 
