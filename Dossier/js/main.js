@@ -118,6 +118,7 @@ serviceCardWithModals.forEach((serviceCardWithModal) => {
 ===================================================== */
 
 // Filter portfolio cards according to portfolio tabs.
+// Filter portfolio cards according to portfolio tabs.
 
    document.addEventListener("DOMContentLoaded", () => {
 
